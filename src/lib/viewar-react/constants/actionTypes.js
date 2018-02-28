@@ -1,0 +1,1 @@
+export const SET_LOADING = '@@VIEWAR_SET_LOADING_STATE';
