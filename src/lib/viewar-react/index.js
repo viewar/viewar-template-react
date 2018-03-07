@@ -1,2 +1,2 @@
-export viewarReducers from './reducers';
+export { viewarReducers } from './reducers';
 export { withLoading } from './withLoading';
