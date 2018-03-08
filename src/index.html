@@ -3,10 +3,16 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="UTF-8">
-  <title>ViewAR React Template</title>
+  <title>ViewAR React Sample</title>
 </head>
 <body>
   <div id="app"></div>
-  <script src="../node_modules/viewar-core/viewar-core.js"></script>
+  <script type="text/javascript">
+    window.bundleIdentifier = window.bundleIdentifier || <%= JSON.stringify(htmlWebpackPlugin.options.bundleIdentifier) %>
+    window.bundleVersion = window.bundleVersion || <%= JSON.stringify(htmlWebpackPlugin.options.bundleVersion) %>
+  </script>
+  <script src="./viewar-core.js"></script>
+</body>
+<link rel="stylesheet" type="text/css" href="//CustomUI/index.css">
 </body>
 </html>
