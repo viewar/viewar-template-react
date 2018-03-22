@@ -14,12 +14,9 @@ import App from './containers/App';
 
 import './index.css';
 
-const appId = 'com.viewar.template.react';
-const version = 1.0;
-
 ;(async () => {
   // initialize the ViewAR API
-  const api = await viewarApi.init({appId, version, logToScreen: true});
+  const api = await viewarApi.init({logToScreen: true});
 
   // create store with the viewar reducers
   const store = createStore(viewarReducers(), composeWithDevTools());
