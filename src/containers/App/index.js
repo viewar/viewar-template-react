@@ -6,17 +6,20 @@ import viewarApi from 'viewar-api';
 
 import { Spinner } from '../../components/Spinner';
 import { Sidebar } from '../../components/Sidebar';
+import { Progress } from '../../components/Progress';
+
 import LoadModelForm from '../LoadModelForm';
 import InfoBox from '../InfoBox';
 
 import styles from './main.css';
 
 
-const Main = ({ loading, selection }) =>
+const Main = ({ loading, selection, progress, setProgress }) =>
   <div className={styles.container}>
-    <Spinner show={loading} />
+    <Spinner show={!progress && loading} />
+    <Progress progress={progress} />
     <Sidebar>
-      <LoadModelForm />
+      <LoadModelForm onProgress={setProgress} />
       <InfoBox selection={selection} />
     </Sidebar>
   </div>;
@@ -24,6 +27,7 @@ const Main = ({ loading, selection }) =>
 export default compose(
   withLoading(),
   withState('selection', 'setSelection', null),
+  withState('progress', 'setProgress', null),
   withProps({
     viewarApi
   }),

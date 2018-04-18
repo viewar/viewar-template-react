@@ -17,11 +17,20 @@ export default compose(
   }),
   withLoading(),
   withHandlers({
-    handleInsertModel: ({ modelId, viewarApi, setLoading }) => async () => {
+    handleTransferProgress: ({ onProgress }) => (id, percent) => {
+      console.log(percent);
+      onProgress(percent);
+    }
+  }),
+  withHandlers({
+    handleInsertModel: ({ modelId, viewarApi, setLoading, handleTransferProgress, onProgress }) => async () => {
       setLoading(true);
       const model = await viewarApi.modelManager.getModelFromRepository(modelId);
+      viewarApi.coreInterface.on('transferProgress', handleTransferProgress);
       await viewarApi.sceneManager.insertModel(model, { pose: { position: { x: 0, y: 0, z: 0 }}});
+      viewarApi.coreInterface.on('transferProgress', handleTransferProgress);
       setLoading(false);
+      onProgress(null);
     }
   }),
 )(LoadModelForm);
