@@ -1,7 +1,11 @@
 import React from 'react';
 import classNames from 'classnames';
 
-import styles from './thumbnail.css';
+import styles from './thumbnail.scss';
 
-export const Thumbnail = ({ active, ...props }) =>
-  <img className={classNames(styles.thumbnail, active && styles.active )} {...props} />;
+export const Thumbnail = ({ active, ...props }) => (
+  <img
+    className={classNames(styles.thumbnail, active && styles.active)}
+    {...props}
+  />
+);

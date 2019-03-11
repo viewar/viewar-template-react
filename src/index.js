@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { AppContainer } from 'react-hot-loader';
 
 import { composeWithDevTools } from 'redux-devtools-extension';
 
@@ -12,22 +11,20 @@ import { viewarReducers } from './lib/viewar-react';
 
 import App from './containers/App';
 
-import './index.css';
+import './index.scss';
 
-;(async () => {
+(async () => {
   // initialize the ViewAR API
-  const api = await viewarApi.init({logToScreen: true});
+  const api = await viewarApi.init({ logToScreen: true });
 
   // create store with the viewar reducers
   const store = createStore(viewarReducers(), composeWithDevTools());
 
   const render = Component => {
     ReactDOM.render(
-      <AppContainer>
-          <Provider store={store}>
-            <Component />
-          </Provider>
-      </AppContainer>,
+      <Provider store={store}>
+        <Component />
+      </Provider>,
       document.getElementById('app')
     );
   };
@@ -35,7 +32,7 @@ import './index.css';
   render(App);
 
   if (module.hot) {
-    module.hot.accept('./containers/App', () => {
+    module.hot.accept(App, () => {
       render(App);
     });
   }
