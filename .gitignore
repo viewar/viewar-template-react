@@ -1,4 +1,4 @@
 node_modules/
-bundle
-build
-.viewar-config
+bundle/
+build/
+.idea/
