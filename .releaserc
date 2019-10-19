@@ -1,6 +1,6 @@
 {
   "branch": "next",
-  "repositoryUrl": "https://github.com/viewar/viewar-template-vanilla.git",
+  "repositoryUrl": "https://github.com/viewar/viewar-template-react.git",
   "plugins": [
    [
     "@semantic-release/commit-analyzer",
