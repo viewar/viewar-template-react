@@ -45,7 +45,7 @@
     "redux": "^4.0.4",
     "redux-devtools-extension": "^2.13.8",
     "viewar-api": "^1.1.0",
-    "viewar-core": "^11.60.14"
+    "viewar-core": "^11.62.4"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.7.4",
